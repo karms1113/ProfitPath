@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfitPath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ProfitPath.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ProfitPath</h1>
+            <p>Your Free Sales Forecasting and Business Insights Tool</p>
+        </header>
+
+        <main>
+            <section id="input-section" class="input-section">
+                <h2>Enter Your Sales Data</h2>
+                <form id="data-form">
+                    <label for="product-name">Product Name:</label>
+                    <input type="text" id="product-name" placeholder="Enter product name (e.g., Product A)" required />
+
+                    <label for="month-data">Months (Comma-Separated):</label>
+                    <input type="text" id="month-data" placeholder="e.g., Jan, Feb, Mar" required />
+
+                    <label for="sales-data">Sales Data (Comma-Separated):</label>
+                    <textarea id="sales-data" placeholder="e.g., 100, 200, 150" required></textarea>
+
+                    <label for="forecast-length">Months to Forecast:</label>
+                    <input type="number" id="forecast-length" placeholder="e.g., 3" min="1" required />
+
+                    <button type="button" onclick="generateForecast()">Generate Forecast</button>
+                </form>
+            </section>
+
+            <section id="output-section" style="display:none;">
+                <h2>Forecast Results</h2>
+                <div id="interactive-forecast-chart" style="width: 100%; height: 400px;"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Item</th>
+                            <th>Sales</th>
+                        </tr>
+                    </thead>
+                    <tbody id="forecast-table-body">
+                        <!-- Forecast data rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+                <p id="analysis"></p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 ProfitPath. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="ProfitPath.js"></script>
+</body>
+</html>
